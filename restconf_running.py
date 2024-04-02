@@ -21,14 +21,14 @@ def main():
     parser.add_argument('--password', type=str, help='Password for authentication')
     args = parser.parse_args()
     #print(args.ip)
-    url = "https://{ip}/restconf/data/Cisco-IOS-XE-native:native/".format(ip=args.ip)
+    url = "https://{ip}/restconf/data/Cisco-IOS-XE-native:native/hostname/".format(ip=args.ip)
     a=set_basic_auth(username=args.username,password=args.password) 
     headers = {
     'Content-Type': 'application/yang-data+json',
     'Accept': 'application/yang-data+json',
     'Authorization':a
     }
-    response = requests.request("GET", url, headers=headers,verify=False)
+    response = requests.request("PUT", url, headers=headers,verify=False)
     print(response.text)
 
 

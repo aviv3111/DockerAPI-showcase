@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "https://192.168.45.131/restconf/data/Cisco-IOS-XE-native:native/hostname/"
+url = "https://192.168.199.130/restconf/data/Cisco-IOS-XE-native:native/hostname/"
 username=(input(" enter a string "))
 payload = json.dumps({
   "Cisco-IOS-XE-native:hostname":username
@@ -14,4 +14,4 @@ headers = {
 
 response = requests.request("PUT", url, headers=headers, data=payload,verify=False)
 
-print((response.text))
+print((response[0]))
